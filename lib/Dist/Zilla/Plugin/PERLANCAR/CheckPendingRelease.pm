@@ -5,10 +5,10 @@ package Dist::Zilla::Plugin::PERLANCAR::CheckPendingRelease;
 # DIST
 # VERSION
 
-use namespace::autoclean;
 use Moose;
 with qw(Dist::Zilla::Role::BeforeRelease);
 
+use namespace::autoclean;
 use File::Which qw(which);
 use IPC::System::Options qw(system);
 
@@ -16,7 +16,7 @@ sub before_release {
   my $self = shift;
 
   my $prog = "my-pending-perl-release";
-  unless (which $program) {
+  unless (which $prog) {
       $self->log_debug("Program $prog is not in PATH, skipping check of pending releases");
       return;
   }
